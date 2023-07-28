@@ -29,6 +29,12 @@ class CompanyModel extends Model {
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }   
 
+    public function getCompanyAverageSalary() {
+        $result = $this->pdo->query('SELECT company_name, AVG(salary) AS average_salary FROM employees GROUP BY company_name');
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    
+    }
+
     public function saveCsvData($data) {
         try {
             $columns = implode(', ', ['company_name','employee_name', 'employee_email', 'salary']);

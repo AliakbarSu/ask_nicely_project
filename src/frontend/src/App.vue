@@ -1,6 +1,7 @@
 <script lang="ts">
 import EmployeeList from './components/EmployeeList.vue'
 import Upload from './components/Upload.vue'
+import AverageSalaries from './components/AverageSalaries.vue'
 import axios from 'axios'
 
 export interface Employee {
@@ -23,7 +24,8 @@ export default {
   },
   components: {
     EmployeeList,
-    Upload
+    Upload,
+    AverageSalaries
   },
   methods: {
     async getEmployees() {
@@ -37,6 +39,7 @@ export default {
 <template>
   <div className="w-full">
     <Upload />
+    <AverageSalaries />
     <EmployeeList :employees="employees" />
   </div>
 </template>

@@ -13,6 +13,10 @@ class CompanyController extends Controller {
         return $this->renderJSON($this->model->getEmployees());
     }
 
+    public function getAverageSalary() {
+        return $this->renderJSON($this->model->getCompanyAverageSalary());
+    }
+
     public function parseCSVFileFromForm() {
         $data = array();
         if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
