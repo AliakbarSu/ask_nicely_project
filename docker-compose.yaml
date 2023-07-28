@@ -1,0 +1,29 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: PHP.Dockerfile
+    volumes:
+      - ./src:/app
+  server:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./src:/app
+  database:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_DATABASE: 'askNicely'
+    volumes:
+      - sqldata:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  sqldata: {}
