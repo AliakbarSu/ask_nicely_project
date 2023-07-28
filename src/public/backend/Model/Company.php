@@ -44,4 +44,16 @@ class CompanyModel extends Model {
             echo "Error: " . $e->getMessage();
         }
     }
+
+    public function updateEmail($user_id, $email) {
+        try {
+            $sql = "UPDATE employees SET employee_email = :email WHERE id = :user_id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }

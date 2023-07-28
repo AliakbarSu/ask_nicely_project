@@ -33,4 +33,13 @@ class CompanyController extends Controller {
         $this->model->saveCsvData($data);
         return $this->renderJSON(array('success' => true));
     }
+
+    public function update_email() {
+        $jsonData = file_get_contents('php://input');
+        $data = json_decode($jsonData, true);
+        $user_id = $data['user_id'];
+        $email = $data['email'];
+        $this->model->updateEmail($user_id, $email);
+        return $this->renderJSON(array('success' => true));
+    }
 }

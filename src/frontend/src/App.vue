@@ -4,6 +4,7 @@ import Upload from './components/Upload.vue'
 import axios from 'axios'
 
 export interface Employee {
+  id: number
   employee_id: number
   employee_name: string
   employee_email: string
