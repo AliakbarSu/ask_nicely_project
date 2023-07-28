@@ -1,12 +1,42 @@
-<script setup lang="ts">
+<script lang="ts">
 import EmployeeList from './components/EmployeeList.vue'
 import Upload from './components/Upload.vue'
+import axios from 'axios'
+
+export interface Employee {
+  employee_id: number
+  employee_name: string
+  employee_email: string
+  employee_photo: string
+}
+
+export default {
+  name: 'App',
+  created() {
+    this.getEmployees()
+  },
+  data() {
+    return {
+      employees: [] as Employee[]
+    }
+  },
+  components: {
+    EmployeeList,
+    Upload
+  },
+  methods: {
+    async getEmployees() {
+      const response = await axios.get('http://127.0.0.1/api/employees.php')
+      this.employees = response.data
+    }
+  }
+}
 </script>
 
 <template>
   <div className="w-full">
     <Upload />
-    <EmployeeList />
+    <EmployeeList :employees="employees" />
   </div>
 </template>
 

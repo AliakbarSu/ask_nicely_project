@@ -14,8 +14,8 @@ class CompanyModel extends Model {
             $sql = "CREATE TABLE IF NOT EXISTS employees (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 company_name VARCHAR(100) NOT NULL,
+                employee_name VARCHAR(100) NOT NULL,
                 employee_email VARCHAR(255) NOT NULL,
-                address VARCHAR(50),
                 salary DECIMAL(10, 2)
             )";
             $this->pdo->exec($sql);
