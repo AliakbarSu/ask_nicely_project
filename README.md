@@ -46,6 +46,8 @@ Before running the application, make sure you have the following prerequisites i
         npm run dev
    ```
 
+6. You can use the `test_file.csv` file in the project root directory to test the upload functionality.
+
 ## Migration
 
 run the following command inside the project root directory:
@@ -77,3 +79,19 @@ To build the application, run the following command inside the `src/frontend` di
 ```
 
 Open your browser and navigate to `http://127.0.0.1/` to view the built application.
+
+## Future Improvements (If had unlimited time)
+
+- Add more tests
+- Add more validation to the upload file
+- Add more validation to the frontend
+- Update the list of employees after uploading a file in the frontend
+- Prevent duplicate employees from being added to the database
+- Move backend folder inside app folder to reduce security risks
+- Better error handling both frontend and backend
+- Dockerize the frontend
+- Use pathname to access different resource in the backend instead of individual files for each resource
+- Restrict cors to only the frontend domain
+- Improve linting
+- Develope a logging interface
+- More...
