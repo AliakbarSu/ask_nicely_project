@@ -10,12 +10,12 @@ class CompanyModel extends Model {
 
 
     public function getEmployees() {
-        $result = $this->pdo->query('SELECT * FROM employees');
+        $result = $this->pdo->query('SELECT * FROM employees ORDER BY employee_name ASC');
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }   
 
     public function getCompanyAverageSalary() {
-        $result = $this->pdo->query('SELECT company_name, AVG(salary) AS average_salary FROM employees GROUP BY company_name');
+        $result = $this->pdo->query('SELECT company_name, AVG(salary) AS average_salary FROM employees GROUP BY company_name ORDER BY company_name ASC');
         return $result->fetchAll(PDO::FETCH_ASSOC);
     
     }

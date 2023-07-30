@@ -1,12 +1,11 @@
 <?php
 require_once '../backend/Controller/Company.php';
+require_once '../backend/Utils/cors.php';
 
+// enable cors
+enableCors();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // enable cors
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Headers: Content-Type');
-    header('Content-Type: application/json');
     $controller = new CompanyController();
     return $controller->getAverageSalary();
 } else {

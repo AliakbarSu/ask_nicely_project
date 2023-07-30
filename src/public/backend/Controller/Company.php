@@ -18,6 +18,7 @@ class CompanyController extends Controller {
     }
 
     public function parseCSVFileFromForm() {
+        // convert csv file to array
         $data = array();
         if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
             $tmpFilePath = $_FILES['file']['tmp_name'];

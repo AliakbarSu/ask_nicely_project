@@ -2,6 +2,7 @@
   <div>
     <h2 className="text-lg font-semibold">Average Salaries</h2>
     <ul role="list" class="divide-y divide-gray-100 p-2">
+      <li v-if="averageSalaries.length === 0" class="text-sm">No data available</li>
       <li
         v-for="averageSalary in averageSalaries"
         :key="averageSalary.average_salary"
@@ -13,9 +14,9 @@
               {{ averageSalary.company_name }}
             </p>
             <p
-              class="'rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset'"
+              class="'rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium bg-green-100 text-green-800'"
             >
-              {{ averageSalary.average_salary }}
+              ${{ averageSalary.average_salary }}
             </p>
           </div>
         </div>

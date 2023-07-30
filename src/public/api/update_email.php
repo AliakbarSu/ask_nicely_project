@@ -1,17 +1,15 @@
 <?php
 require_once '../backend/Controller/Company.php';
+require_once '../backend/Utils/cors.php';
 
 // enable cors
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Content-Type');
+enableCors();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $controller = new CompanyController();
     return $controller->update_email();
-}else if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {  
-    return 0;    
- }    
- else {
+} else {
     http_response_code(405);
     echo json_encode(array('error' => 'Method not allowed'));
 }

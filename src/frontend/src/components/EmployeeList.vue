@@ -9,6 +9,7 @@
         :open="modalOpen"
         :email="email"
       />
+      <li v-if="employees.length === 0" class="text-sm">No data available</li>
       <li
         v-for="employee in employees"
         :key="employee.id"
@@ -20,7 +21,7 @@
               {{ employee.employee_name }}
             </p>
             <p
-              class="'rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset'"
+              class="'rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium bg-green-100 text-green-500'"
             >
               {{ employee.employee_email }}
             </p>
@@ -99,7 +100,7 @@ export default {
     },
     onUpdateEmail(email: string) {
       this.closeModal()
-      axios.post('http://127.0.0.1/api/update_email.php', {
+      axios.put('http://127.0.0.1/api/update_email.php', {
         user_id: this.userId,
         email: email
       })
