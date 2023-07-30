@@ -14,7 +14,7 @@ Before running the application, make sure you have the following prerequisites i
 1. Clone the repository from GitHub:
 
    ```bash
-   git clone git@github.com:AliakbarSu/ask_nicely_project.git
+   git clone https://github.com/AliakbarSu/ask_nicely_project.git
    cd ask_nicely_project
    ```
 
