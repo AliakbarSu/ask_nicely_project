@@ -32,21 +32,33 @@ Before running the application, make sure you have the following prerequisites i
         npm install
    ```
 
-3. Run the following command to start the frontend application:
-
-   ```bash
-        npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:5173/` to view the application in development.
-
-5. Run the following command inside the project directory to start the backend server:
+3. Run the following command inside the project root directory to start the backend server:
 
    ```bash
         docker compose up
    ```
 
-6. Open your browser and navigate to `http://127.0.0.1/` to view the application.
+4. Follow the migration steps bellow.
+
+5. Run the following command to start the frontend application and navigate to `http://localhost:5173/` to view the application in development.
+
+   ```bash
+        npm run dev
+   ```
+
+## Migration
+
+run the following command inside the project root directory:
+
+```bash
+    docker compose exec php php ./Migrations/migrate.php
+```
+
+OR
+
+```bash
+    make migrate
+```
 
 ## Testing
 
@@ -63,3 +75,5 @@ To build the application, run the following command inside the `src/frontend` di
 ```bash
     npm run build
 ```
+
+Open your browser and navigate to `http://127.0.0.1/` to view the built application.
