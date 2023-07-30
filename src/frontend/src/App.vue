@@ -6,10 +6,10 @@ import axios from 'axios'
 
 export interface Employee {
   id: number
-  employee_id: number
+  company_name: string
   employee_name: string
   employee_email: string
-  employee_photo: string
+  salary: number
 }
 
 export default {
